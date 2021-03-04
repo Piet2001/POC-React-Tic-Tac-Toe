@@ -1,7 +1,11 @@
 build-job:
   stage: build
+  image: node
   script:
     - echo "Hello, $GITLAB_USER_LOGIN!"
+    - npm install
+    - npm build
+    - echo "Build successfully!"
 
 test-job1:
   stage: test
@@ -18,8 +22,12 @@ test-job2:
 
 test-job3:
   stage: test
+  image: node
   script:
-    - npm test
+    - echo "Testing App"
+    - npm install
+    - CI=true npm test
+    - echo "Test successfully!"
 
 deploy-prod:
   stage: deploy
