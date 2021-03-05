@@ -1,4 +1,4 @@
-node: 15.11.0
+image: node:15.11.0
 
 build-job:
   stage: build
